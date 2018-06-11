@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile007.png-3e871628effc8fb61e1fd699895efb47.stex"
+path="res://.import/brock.png-73c04690d26b987eda03016e395ab74c.stex"
 
 [deps]
 
-source_file="res://sprites/tile007.png"
-source_md5="160d07171f83c0ee2425a25ac32106a6"
+source_file="res://sprites/brock.png"
+source_md5="e8dafe9962859e190dfeaa521e79b183"
 
-dest_files=[ "res://.import/tile007.png-3e871628effc8fb61e1fd699895efb47.stex" ]
-dest_md5="c3ce9ff49ad4913ab8783fc626805dc6"
+dest_files=[ "res://.import/brock.png-73c04690d26b987eda03016e395ab74c.stex" ]
+dest_md5="026f342f599a626f4cd6c201b8c12307"
 
 [params]
 
