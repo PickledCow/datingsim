@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/All_Star_-_Smash_Mouth_Lyrics[Mp3Converter.net].wav-b0580390607592005a4bf19a6fde8377.sample"
+
+[deps]
+
+source_file="res://All_Star_-_Smash_Mouth_Lyrics[Mp3Converter.net].wav"
+source_md5="cb4c41f9ee555efecc045dedac4af063"
+
+dest_files=[ "res://.import/All_Star_-_Smash_Mouth_Lyrics[Mp3Converter.net].wav-b0580390607592005a4bf19a6fde8377.sample" ]
+dest_md5="59795829daddde80f7798569d6c997a2"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
