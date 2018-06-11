@@ -1,25 +1,28 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://sprites/debug/tile000.png" type="Texture" id=2]
-[ext_resource path="res://sprites/debug/tile002.png" type="Texture" id=3]
-[ext_resource path="res://sprites/debug/tile001.png" type="Texture" id=4]
-[ext_resource path="res://sprites/debug/tile003.png" type="Texture" id=5]
-[ext_resource path="res://sprites/debug/tile005.png" type="Texture" id=6]
-[ext_resource path="res://sprites/debug/tile004.png" type="Texture" id=7]
-[ext_resource path="res://sprites/debug/tile009.png" type="Texture" id=8]
-[ext_resource path="res://sprites/debug/tile011.png" type="Texture" id=9]
-[ext_resource path="res://sprites/debug/tile010.png" type="Texture" id=10]
-[ext_resource path="res://sprites/debug/tile012.png" type="Texture" id=11]
-[ext_resource path="res://sprites/debug/tile006.png" type="Texture" id=12]
-[ext_resource path="res://sprites/debug/tile014.png" type="Texture" id=13]
-[ext_resource path="res://sprites/debug/tile007.png" type="Texture" id=14]
-[ext_resource path="res://sprites/debug/tile008.png" type="Texture" id=15]
-[ext_resource path="res://sprites/debug/tile015.png" type="Texture" id=16]
-[ext_resource path="res://sprites/debug/tile013.png" type="Texture" id=17]
-[ext_resource path="res://ddebug tilest.tres" type="TileSet" id=18]
-[ext_resource path="res://Scripts/Door.gd" type="Script" id=19]
-[ext_resource path="res://sprites/debug/door.png" type="Texture" id=20]
+[ext_resource path="res://sprites/fade.png" type="Texture" id=2]
+[ext_resource path="res://sprites/debug/tile000.png" type="Texture" id=3]
+[ext_resource path="res://sprites/debug/tile002.png" type="Texture" id=4]
+[ext_resource path="res://sprites/debug/tile001.png" type="Texture" id=5]
+[ext_resource path="res://sprites/debug/tile003.png" type="Texture" id=6]
+[ext_resource path="res://sprites/debug/tile005.png" type="Texture" id=7]
+[ext_resource path="res://sprites/debug/tile004.png" type="Texture" id=8]
+[ext_resource path="res://sprites/debug/tile009.png" type="Texture" id=9]
+[ext_resource path="res://sprites/debug/tile011.png" type="Texture" id=10]
+[ext_resource path="res://sprites/debug/tile010.png" type="Texture" id=11]
+[ext_resource path="res://sprites/debug/tile012.png" type="Texture" id=12]
+[ext_resource path="res://sprites/debug/tile006.png" type="Texture" id=13]
+[ext_resource path="res://sprites/debug/tile014.png" type="Texture" id=14]
+[ext_resource path="res://sprites/debug/tile007.png" type="Texture" id=15]
+[ext_resource path="res://sprites/debug/tile008.png" type="Texture" id=16]
+[ext_resource path="res://sprites/debug/tile015.png" type="Texture" id=17]
+[ext_resource path="res://sprites/debug/tile013.png" type="Texture" id=18]
+[ext_resource path="res://ddebug tilest.tres" type="TileSet" id=19]
+[ext_resource path="res://Scripts/Door.gd" type="Script" id=20]
+[ext_resource path="res://sprites/debug/door.png" type="Texture" id=21]
+[ext_resource path="res://debugnocol.tres" type="TileSet" id=22]
+[ext_resource path="res://Scripts/Transitions.gd" type="Script" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,49 +32,100 @@ extents = Vector2( 20, 20 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "right",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "left",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "up",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "rightidle",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "downidle",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 13 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "down",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "upidle",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "leftidle",
 "speed": 1.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="Animation" id=3]
+
+resource_name = "fade"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath("../../Transitions")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "resend"
+}, {
+"args": [  ],
+"method": "resendPart2"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Transition/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 12 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 12, 32 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 12, 32 )
+
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 12 )
@@ -80,7 +134,6 @@ extents = Vector2( 32, 12 )
 
 [node name="Player" type="KinematicBody2D" parent="." index="0"]
 
-editor/display_folded = true
 position = Vector2( 96, 158 )
 z_index = 1
 input_pickable = false
@@ -90,20 +143,85 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="0"]
+[node name="Transition" type="Node2D" parent="Player" index="0"]
+
+z_index = 5
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="TextureRect" type="TextureRect" parent="Player/Transition" index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 0, 0, 0, 1 )
+show_behind_parent = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -750.0
+margin_top = -500.0
+margin_right = 750.0
+margin_bottom = 500.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
 
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Player" index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player" index="2"]
 
 frames = SubResource( 2 )
 animation = "rightidle"
 frame = 1
 playing = true
 
-[node name="rayDownLeftA" type="RayCast2D" parent="Player" index="2"]
+[node name="Camera2D" type="Camera2D" parent="Player" index="3"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Smoothing" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Camera2D" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/fade = SubResource( 3 )
+blend_times = [  ]
+
+[node name="rayDownLeftA" type="RayCast2D" parent="Player" index="4"]
 
 position = Vector2( 20, 28 )
 enabled = true
@@ -112,7 +230,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayDownLeftB" type="RayCast2D" parent="Player" index="3"]
+[node name="rayDownLeftB" type="RayCast2D" parent="Player" index="5"]
 
 position = Vector2( 6, 28 )
 enabled = true
@@ -121,7 +239,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayDownRightA" type="RayCast2D" parent="Player" index="4"]
+[node name="rayDownRightA" type="RayCast2D" parent="Player" index="6"]
 
 position = Vector2( -20, 28 )
 enabled = true
@@ -130,7 +248,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayDownRightB" type="RayCast2D" parent="Player" index="5"]
+[node name="rayDownRightB" type="RayCast2D" parent="Player" index="7"]
 
 position = Vector2( -6, 28 )
 enabled = true
@@ -139,7 +257,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayRightDownA" type="RayCast2D" parent="Player" index="6"]
+[node name="rayRightDownA" type="RayCast2D" parent="Player" index="8"]
 
 position = Vector2( 20, 28 )
 rotation = -1.5708
@@ -149,7 +267,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayRightDownB" type="RayCast2D" parent="Player" index="7"]
+[node name="rayRightDownB" type="RayCast2D" parent="Player" index="9"]
 
 position = Vector2( 20, 14 )
 rotation = -1.5708
@@ -159,7 +277,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayRightUpA" type="RayCast2D" parent="Player" index="8"]
+[node name="rayRightUpA" type="RayCast2D" parent="Player" index="10"]
 
 position = Vector2( 20, -12 )
 rotation = -1.5708
@@ -169,7 +287,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayRightUpB" type="RayCast2D" parent="Player" index="9"]
+[node name="rayRightUpB" type="RayCast2D" parent="Player" index="11"]
 
 position = Vector2( 20, 2 )
 rotation = -1.5708
@@ -179,7 +297,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayLeftDownA" type="RayCast2D" parent="Player" index="10"]
+[node name="rayLeftDownA" type="RayCast2D" parent="Player" index="12"]
 
 position = Vector2( -20, 28 )
 rotation = 1.5708
@@ -189,7 +307,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayLeftDownB" type="RayCast2D" parent="Player" index="11"]
+[node name="rayLeftDownB" type="RayCast2D" parent="Player" index="13"]
 
 position = Vector2( -20, 14 )
 rotation = 1.5708
@@ -199,7 +317,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayLeftUpA" type="RayCast2D" parent="Player" index="12"]
+[node name="rayLeftUpA" type="RayCast2D" parent="Player" index="14"]
 
 position = Vector2( -20, -12 )
 rotation = 1.5708
@@ -209,7 +327,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayLeftUpB" type="RayCast2D" parent="Player" index="13"]
+[node name="rayLeftUpB" type="RayCast2D" parent="Player" index="15"]
 
 position = Vector2( -20, 2 )
 rotation = 1.5708
@@ -219,7 +337,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayUpLeftA" type="RayCast2D" parent="Player" index="14"]
+[node name="rayUpLeftA" type="RayCast2D" parent="Player" index="16"]
 
 position = Vector2( 20, -12 )
 rotation = 3.14159
@@ -229,7 +347,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayUpLeftB" type="RayCast2D" parent="Player" index="15"]
+[node name="rayUpLeftB" type="RayCast2D" parent="Player" index="17"]
 
 position = Vector2( 6, -12 )
 rotation = 3.14159
@@ -239,7 +357,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayUpRightA" type="RayCast2D" parent="Player" index="16"]
+[node name="rayUpRightA" type="RayCast2D" parent="Player" index="18"]
 
 position = Vector2( -20, -12 )
 rotation = 3.14159
@@ -249,7 +367,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="rayUpRightB" type="RayCast2D" parent="Player" index="17"]
+[node name="rayUpRightB" type="RayCast2D" parent="Player" index="19"]
 
 position = Vector2( -6, -12 )
 rotation = 3.14159
@@ -262,7 +380,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
 mode = 0
-tile_set = ExtResource( 18 )
+tile_set = ExtResource( 19 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -277,11 +395,12 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 0, 0, 65547, 0, 0, 65551, 0, 0, 131072, 0, 0, 131074, 0, 0, 131075, 1, 0, 131083, 0, 0, 131087, 0, 0, 196608, 0, 0, 196610, 0, 0, 196611, 0, 0, 196615, 2, 0, 196616, 0, 0, 196617, 1, 0, 196621, 2, 0, 196622, 0, 0, 196623, 0, 0, 262144, 0, 0, 262147, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 1, 0, 262157, 0, 0, 262159, 0, 0, 327680, 0, 0, 327682, 0, 0, 327683, 0, 0, 327687, 4, 0, 327688, 3, 0, 327690, 0, 0, 327695, 0, 0, 393216, 0, 0, 393218, 0, 0, 393219, 0, 0, 393231, 0, 0, 458752, 0, 0, 458754, 0, 0, 458755, 3, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458767, 0, 0, 524288, 0, 0, 524303, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0 )
+tile_data = PoolIntArray( -786440, 0, 0, -786439, 0, 0, -786438, 0, 0, -786437, 0, 0, -786436, 0, 0, -786435, 0, 0, -786434, 0, 0, -720904, 0, 0, -720898, 0, 0, -655368, 0, 0, -655362, 0, 0, -589832, 0, 0, -589826, 0, 0, -524296, 0, 0, -524290, 0, 0, -458760, 0, 0, -458754, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -327686, 0, 0, -327684, 0, 0, -262150, 0, 0, -262149, 0, 0, -262148, 0, 0, 65518, 0, 0, 65519, 0, 0, 65520, 0, 0, 65521, 0, 0, 65522, 0, 0, 65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 65526, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 131054, 0, 0, 131062, 0, 0, 65536, 0, 0, 65547, 0, 0, 65551, 0, 0, 196589, 0, 0, 196590, 0, 0, 196598, 0, 0, 196599, 0, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131074, 0, 0, 131075, 1, 0, 131083, 0, 0, 131087, 0, 0, 262125, 0, 0, 196610, 0, 0, 196611, 0, 0, 196615, 2, 0, 196616, 0, 0, 196617, 1, 0, 196621, 2, 0, 196622, 0, 0, 196623, 0, 0, 327661, 0, 0, 327664, 0, 0, 262147, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 1, 0, 262157, 0, 0, 262159, 0, 0, 393197, 0, 0, 393200, 0, 0, 393203, 0, 0, 393204, 0, 0, 393205, 0, 0, 393209, 0, 0, 393210, 0, 0, 393211, 0, 0, 393212, 0, 0, 327682, 0, 0, 327683, 0, 0, 327687, 4, 0, 327688, 3, 0, 327690, 0, 0, 327695, 0, 0, 458733, 0, 0, 458736, 0, 0, 458739, 0, 0, 458741, 0, 0, 393218, 0, 0, 393219, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 524269, 0, 0, 524272, 0, 0, 458754, 0, 0, 458755, 3, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 589805, 0, 0, 589806, 0, 0, 589815, 0, 0, 589816, 0, 0, 589817, 0, 0, 589818, 0, 0, 589819, 0, 0, 589820, 0, 0, 589821, 0, 0, 589822, 0, 0, 589823, 0, 0, 524288, 0, 0, 524303, 0, 0, 524307, 0, 0, 655342, 0, 0, 655351, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 720878, 0, 0, 720879, 0, 0, 720880, 0, 0, 720881, 0, 0, 720882, 0, 0, 720883, 0, 0, 720884, 0, 0, 720885, 0, 0, 720886, 0, 0, 720887, 0, 0 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Door1" type="Area2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 928, 288 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -290,29 +409,32 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 19 )
+script = ExtResource( 20 )
 _sections_unfolded = [ "Transform" ]
 playerName = "Player"
 triggerName = "CollisionShape2D"
 destinationName = "Door2"
-offsetX = -48
+offsetX = -24
 offsetY = 5
 exitAnim = "left"
+transition = false
+sceneChange = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door1" index="0"]
 
 position = Vector2( 0, -18 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Test Door2" type="Sprite" parent="Door1" index="1"]
 
 position = Vector2( -1.22772, 0 )
-texture = ExtResource( 20 )
+texture = ExtResource( 21 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Door2" type="Area2D" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 160, 288 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -321,25 +443,189 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 19 )
+script = ExtResource( 20 )
 _sections_unfolded = [ "Transform" ]
 playerName = "Player"
 triggerName = "CollisionShape2D"
 destinationName = "Door1"
-offsetX = 2
-offsetY = 32
+offsetX = 0
+offsetY = 24
 exitAnim = "down"
+transition = false
+sceneChange = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2" index="0"]
 
 position = Vector2( 18, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Test Door2" type="Sprite" parent="Door2" index="1"]
 
 position = Vector2( -1.22772, 0 )
-texture = ExtResource( 20 )
+texture = ExtResource( 21 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Door3" type="Area2D" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 1056, 544 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 20 )
+_sections_unfolded = [ "Transform" ]
+playerName = "Player"
+triggerName = "CollisionShape2D"
+destinationName = "Door4"
+offsetX = 0
+offsetY = 16
+exitAnim = "down"
+transition = false
+sceneChange = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3" index="0"]
+
+position = Vector2( -18, 0 )
+shape = SubResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Test Door2" type="Sprite" parent="Door3" index="1"]
+
+position = Vector2( -1.22772, 0 )
+texture = ExtResource( 21 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Door4" type="Area2D" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 928, 480 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 20 )
+_sections_unfolded = [ "Transform" ]
+playerName = "Player"
+triggerName = "CollisionShape2D"
+destinationName = "Door3"
+offsetX = 24
+offsetY = 5
+exitAnim = "right"
+transition = false
+sceneChange = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4" index="0"]
+
+position = Vector2( 0, -18 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Test Door2" type="Sprite" parent="Door4" index="1"]
+
+position = Vector2( -1.22772, 0 )
+texture = ExtResource( 21 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Door5" type="Area2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( -736, 416 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 20 )
+_sections_unfolded = [ "Transform" ]
+playerName = "Player"
+triggerName = "CollisionShape2D"
+destinationName = "Door6"
+offsetX = 0
+offsetY = -24
+exitAnim = "up"
+transition = true
+sceneChange = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door5" index="0"]
+
+position = Vector2( 0, -18 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Test Door2" type="Sprite" parent="Door5" index="1"]
+
+position = Vector2( -1.22772, 0 )
+texture = ExtResource( 21 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Door6" type="Area2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( -288, -351 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 20 )
+_sections_unfolded = [ "Transform" ]
+playerName = "Player"
+triggerName = "CollisionShape2D"
+destinationName = "Door5"
+offsetX = 0
+offsetY = 24
+exitAnim = "down"
+transition = true
+sceneChange = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door6" index="0"]
+
+position = Vector2( 0, 18 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Test Door2" type="Sprite" parent="Door6" index="1"]
+
+position = Vector2( -1.22772, 0 )
+texture = ExtResource( 21 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TileMap2" type="TileMap" parent="." index="8"]
+
+z_index = 2
+mode = 0
+tile_set = ExtResource( 22 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 131070, 0, 0, 131071, 0, 0, 327667, 0, 0, 327668, 0, 0, 327669, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Transitions" type="Node2D" parent="." index="9"]
+
+script = ExtResource( 23 )
 
 
