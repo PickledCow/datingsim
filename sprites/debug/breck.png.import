@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/breck.png-fe0b613a85056efb27019f7cae3055ba.stex"
 
 [deps]
 
-source_file="res://icon.png"
-source_md5="bb249435e48fa4a4eecd48d61d560667"
+source_file="res://sprites/debug/breck.png"
+source_md5="85e4307eb609bc1096a3662805acb43e"
 
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
-dest_md5="126ebc03daac196f362af8f6514ed3dd"
+dest_files=[ "res://.import/breck.png-fe0b613a85056efb27019f7cae3055ba.stex" ]
+dest_md5="d43c30adbd4fa781a6ad4785e56c0587"
 
 [params]
 

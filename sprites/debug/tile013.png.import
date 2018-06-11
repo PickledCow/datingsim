@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex"
+path="res://.import/tile013.png-0b8c08143a28bb79b824302c13317e42.stex"
 
 [deps]
 
-source_file="res://icon.png"
-source_md5="bb249435e48fa4a4eecd48d61d560667"
+source_file="res://sprites/debug/tile013.png"
+source_md5="a59e4f83ed4a6c8b85e4b14d04165a0c"
 
-dest_files=[ "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.stex" ]
-dest_md5="126ebc03daac196f362af8f6514ed3dd"
+dest_files=[ "res://.import/tile013.png-0b8c08143a28bb79b824302c13317e42.stex" ]
+dest_md5="b2c947194d598afcdb389e07c9ef7a2a"
 
 [params]
 

@@ -1,10 +1,10 @@
 [gd_resource type="TileSet" load_steps=11 format=2]
 
-[ext_resource path="res://sprites/brick.png" type="Texture" id=1]
-[ext_resource path="res://sprites/brock.png" type="Texture" id=2]
-[ext_resource path="res://sprites/bruck.png" type="Texture" id=3]
-[ext_resource path="res://sprites/brack.png" type="Texture" id=4]
-[ext_resource path="res://sprites/breck.png" type="Texture" id=5]
+[ext_resource path="res://sprites/debug/brick.png" type="Texture" id=1]
+[ext_resource path="res://sprites/debug/brock.png" type="Texture" id=2]
+[ext_resource path="res://sprites/debug/bruck.png" type="Texture" id=3]
+[ext_resource path="res://sprites/debug/brack.png" type="Texture" id=4]
+[ext_resource path="res://sprites/debug/breck.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 

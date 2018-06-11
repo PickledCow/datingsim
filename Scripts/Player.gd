@@ -38,68 +38,75 @@ func _physics_process(delta):
 	
 	var motion = Vector2()
 	
-	if Input.is_action_pressed("up"):
+	if Input.is_action_pressed("up") and not Input.is_action_pressed("down"):
 		motion += Vector2(0, -1)
 		moving = true
-		
-		if anim == "down" and not Input.is_action_pressed("down"):
+
+		if (anim == "down" or anim == "downidle") and not Input.is_action_pressed("down"):
 			newAnim = true
 			anim = "up"
-		if anim == "left" and not Input.is_action_pressed("left"):
+		if (anim == "left" or anim == "leftidle") and not Input.is_action_pressed("left"):
 			newAnim = true
 			anim = "up"
-		if anim == "right" and not Input.is_action_pressed("right"):
+		if (anim == "right" or anim == "rightidle") and not Input.is_action_pressed("right"):
 			newAnim = true
 			anim = "up"
 		if newAnim == false:
 			newAnim = true
 			anim = "up"
-	if Input.is_action_pressed("down"):
+
+	if Input.is_action_pressed("down") and not Input.is_action_pressed("up"):
 		motion += Vector2(0, 1)
 		moving = true
-		if anim == "up" and not Input.is_action_pressed("up"):
+			
+		if (anim == "up" or anim == "upidle") and not Input.is_action_pressed("up"):
 			newAnim = true
 			anim = "down"
-		if anim == "left" and not Input.is_action_pressed("left"):
+		if (anim == "left" or anim == "leftidle") and not Input.is_action_pressed("left"):
 			newAnim = true
 			anim = "down"
-		if anim == "right" and not Input.is_action_pressed("right"):
+		if (anim == "right" or anim == "rightidle") and not Input.is_action_pressed("right"):
 			newAnim = true
-			anim = "down"		
+			anim = "down"
 		if newAnim == false:
 			newAnim = true
 			anim = "down"
-	if Input.is_action_pressed("left"):
+
+	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
 		motion += Vector2(-1, 0)
 		moving = true
-		if anim == "up" and not Input.is_action_pressed("up"):
+	
+		if (anim == "up" or anim == "upidle") and not Input.is_action_pressed("up"):
 			newAnim = true
 			anim = "left"
-		if anim == "down" and not Input.is_action_pressed("down"):
+		if (anim == "down" or anim == "downidle") and not Input.is_action_pressed("down"):
 			newAnim = true
 			anim = "left"
-		if anim == "right" and not Input.is_action_pressed("right"):
+		if (anim == "right" or anim == "rightidle") and not Input.is_action_pressed("right"):
 			newAnim = true
 			anim = "left"	
 		if newAnim == false:
 			newAnim = true
 			anim = "left"
-	if Input.is_action_pressed("right"):
+			
+	if Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
 		motion += Vector2(1, 0)
 		moving = true
-		if anim == "up" and not Input.is_action_pressed("up"):
+		
+			
+		if (anim == "up" or anim == "upidle") and not Input.is_action_pressed("up"):
 			newAnim = true
 			anim = "right"
-		if anim == "down" and not Input.is_action_pressed("down"):
+		if (anim == "down" or anim == "downidle") and not Input.is_action_pressed("down"):
 			newAnim = true
 			anim = "right"
-		if anim == "left" and not Input.is_action_pressed("left"):
+		if (anim == "left" or anim == "leftidle") and not Input.is_action_pressed("left"):
 			newAnim = true
 			anim = "right"	
 		if newAnim == false:
 			newAnim = true
 			anim = "right"
-	
+		
 	if moving == false:
 		newAnim = false
 		if not anim.ends_with("idle"):
