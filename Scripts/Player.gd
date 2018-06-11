@@ -28,8 +28,9 @@ func _ready():
 	pass
 
 var door = false
-func enterDoor(destination):
-	global_translate(Vector2(destination) - Vector2(get_transform()[2]))
+func enterDoor(destination, offset, exitAnim):
+	global_translate(Vector2(destination) - Vector2(get_transform()[2]) + offset)
+	anim = exitAnim
 
 func _physics_process(delta):
 	var runModifier = 1
