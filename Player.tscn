@@ -1,13 +1,13 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://sprites/fade.png" type="Texture" id=2]
-[ext_resource path="res://sprites/debug/tile000.png" type="Texture" id=3]
-[ext_resource path="res://sprites/debug/tile002.png" type="Texture" id=4]
-[ext_resource path="res://sprites/debug/tile001.png" type="Texture" id=5]
-[ext_resource path="res://sprites/debug/tile003.png" type="Texture" id=6]
-[ext_resource path="res://sprites/debug/tile005.png" type="Texture" id=7]
-[ext_resource path="res://sprites/debug/tile004.png" type="Texture" id=8]
+[ext_resource path="res://sprites/debug/tile003.png" type="Texture" id=3]
+[ext_resource path="res://sprites/debug/tile005.png" type="Texture" id=4]
+[ext_resource path="res://sprites/debug/tile004.png" type="Texture" id=5]
+[ext_resource path="res://sprites/debug/tile000.png" type="Texture" id=6]
+[ext_resource path="res://sprites/debug/tile002.png" type="Texture" id=7]
+[ext_resource path="res://sprites/debug/tile001.png" type="Texture" id=8]
 [ext_resource path="res://sprites/debug/tile009.png" type="Texture" id=9]
 [ext_resource path="res://sprites/debug/tile011.png" type="Texture" id=10]
 [ext_resource path="res://sprites/debug/tile010.png" type="Texture" id=11]
@@ -19,22 +19,17 @@
 [ext_resource path="res://sprites/debug/tile015.png" type="Texture" id=17]
 [ext_resource path="res://sprites/debug/tile013.png" type="Texture" id=18]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 20, 20 )
-
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ) ],
@@ -42,7 +37,7 @@ animations = [ {
 "name": "up",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "rightidle",
 "speed": 1.0
@@ -62,14 +57,14 @@ animations = [ {
 "name": "upidle",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "leftidle",
 "speed": 1.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 resource_name = "fade"
 length = 0.6
@@ -144,19 +139,14 @@ expand = true
 stretch_mode = 0
 _sections_unfolded = [ "Rect", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
-position = Vector2( 0, 8 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
-
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "rightidle"
+frame = 1
 playing = true
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
 
 anchor_mode = 1
 rotating = false
@@ -180,7 +170,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-_sections_unfolded = [ "Smoothing" ]
+_sections_unfolded = [ "Drag Margin", "Smoothing" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D" index="0"]
 
@@ -189,163 +179,14 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/fade = SubResource( 3 )
+anims/fade = SubResource( 2 )
 blend_times = [  ]
 
-[node name="rayDownLeftA" type="RayCast2D" parent="." index="4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="3"]
 
-position = Vector2( 20, 28 )
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayDownLeftB" type="RayCast2D" parent="." index="5"]
-
-position = Vector2( 6, 28 )
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayDownRightA" type="RayCast2D" parent="." index="6"]
-
-position = Vector2( -20, 28 )
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayDownRightB" type="RayCast2D" parent="." index="7"]
-
-position = Vector2( -6, 28 )
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayRightDownA" type="RayCast2D" parent="." index="8"]
-
-position = Vector2( 20, 28 )
-rotation = -1.5708
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayRightDownB" type="RayCast2D" parent="." index="9"]
-
-position = Vector2( 20, 14 )
-rotation = -1.5708
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayRightUpA" type="RayCast2D" parent="." index="10"]
-
-position = Vector2( 20, -12 )
-rotation = -1.5708
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayRightUpB" type="RayCast2D" parent="." index="11"]
-
-position = Vector2( 20, 2 )
-rotation = -1.5708
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayLeftDownA" type="RayCast2D" parent="." index="12"]
-
-position = Vector2( -20, 28 )
-rotation = 1.5708
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayLeftDownB" type="RayCast2D" parent="." index="13"]
-
-position = Vector2( -20, 14 )
-rotation = 1.5708
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayLeftUpA" type="RayCast2D" parent="." index="14"]
-
-position = Vector2( -20, -12 )
-rotation = 1.5708
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayLeftUpB" type="RayCast2D" parent="." index="15"]
-
-position = Vector2( -20, 2 )
-rotation = 1.5708
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayUpLeftA" type="RayCast2D" parent="." index="16"]
-
-position = Vector2( 20, -12 )
-rotation = 3.14159
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayUpLeftB" type="RayCast2D" parent="." index="17"]
-
-position = Vector2( 6, -12 )
-rotation = 3.14159
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayUpRightA" type="RayCast2D" parent="." index="18"]
-
-position = Vector2( -20, -12 )
-rotation = 3.14159
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="rayUpRightB" type="RayCast2D" parent="." index="19"]
-
-position = Vector2( -6, -12 )
-rotation = 3.14159
-enabled = true
-exclude_parent = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 1
+position = Vector2( 0, -2 )
+build_mode = 0
+polygon = PoolVector2Array( -20, 18, -8, 30, 8, 30, 20, 18, 20, 2, 8, -10, -8, -10, -20, 2 )
 _sections_unfolded = [ "Transform" ]
 
 

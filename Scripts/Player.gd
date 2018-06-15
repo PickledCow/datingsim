@@ -9,31 +9,27 @@ var dominantAnim = ""
 
 onready var canMove = true
 
-onready var rayUpLeftA = get_node("rayUpLeftA")
-onready var rayUpLeftB = get_node("rayUpLeftB")
-onready var rayUpRightA = get_node("rayUpRightA")
-onready var rayUpRightB = get_node("rayUpRightB")
-onready var rayDownLeftA = get_node("rayDownLeftA")
-onready var rayDownLeftB = get_node("rayDownLeftB")
-onready var rayDownRightA = get_node("rayDownRightA")
-onready var rayDownRightB = get_node("rayDownRightB")
-onready var rayRightDownA = get_node("rayRightDownA")
-onready var rayRightDownB = get_node("rayRightDownB")
-onready var rayRightUpA = get_node("rayRightUpA")
-onready var rayRightUpB = get_node("rayRightUpB")
-onready var rayLeftDownA = get_node("rayLeftDownA")
-onready var rayLeftDownB = get_node("rayLeftDownB")
-onready var rayLeftUpA = get_node("rayLeftUpA")
-onready var rayLeftUpB = get_node("rayLeftUpB")
-
 func _ready():
 	pass
 
+func save():
+	var save_dict = {
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path()
+	}
+	return save_dict
+
+func loads(x, y):
+	global_translate(Vector2(x, y) - Vector2(get_transform()[2]))	
+	
+	
 func enterDoor(destination, offset, exitAnim):
 	global_translate(Vector2(destination) - Vector2(get_transform()[2]) + offset)
 	anim = exitAnim
 
-func _physics_process(delta):
+func _process(delta):
 	if canMove:
 		var runModifier = 1
 		var moving = false
@@ -120,23 +116,6 @@ func _physics_process(delta):
 				runModifier = (runModifier - 0.0005)^2
 			else:
 				runModifier = 1
-		
-		if motion.y < 0 and rayUpLeftA.is_colliding() and not rayUpLeftB.is_colliding():
-			motion += Vector2(-1, 0)
-		if motion.y < 0 and rayUpRightA.is_colliding() and not rayUpRightB.is_colliding():
-			motion += Vector2(1, 0)
-		if motion.y > 0 and rayDownLeftA.is_colliding() and not rayDownLeftB.is_colliding():
-			motion += Vector2(-1, 0)
-		if motion.y > 0 and rayDownRightA.is_colliding() and not rayDownRightB.is_colliding():
-			motion += Vector2(1, 0)
-		if motion.x > 0 and rayRightDownA.is_colliding() and not rayRightDownB.is_colliding():
-			motion += Vector2(0, -1)
-		if motion.x > 0 and rayRightUpA.is_colliding() and not rayRightUpB.is_colliding():
-			motion += Vector2(0, 1)
-		if motion.x < 0 and rayLeftDownA.is_colliding() and not rayLeftDownB.is_colliding():
-			motion += Vector2(0, -1)
-		if motion.x < 0 and rayLeftUpA.is_colliding() and not rayLeftUpB.is_colliding():
-			motion += Vector2(0, 1)
 	
 		motion = motion.normalized() * speed * runModifier
 	

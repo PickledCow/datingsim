@@ -1,7 +1,7 @@
 extends Area2D
 
 onready var player = get_node("../Player")
-onready var audio = get_node("AudioStreamPlayer2D")
+onready var audio = get_node("AudioStreamPlayer")
 var touching = false
 var audioPlaying = false
 
