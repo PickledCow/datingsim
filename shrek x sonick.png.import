@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile002.png-fc24860ecbbef2a9ee054258f8629a43.stex"
+path="res://.import/shrek x sonick.png-0fb478164e4c8dffb974671bbeb2e797.stex"
 
 [deps]
 
-source_file="res://sprites/debug/tile002.png"
-source_md5="8609cc7f56486807a5079df9f6af49e1"
+source_file="res://shrek x sonick.png"
+source_md5="6c6af64cb82068254c6830bdbd1f0382"
 
-dest_files=[ "res://.import/tile002.png-fc24860ecbbef2a9ee054258f8629a43.stex" ]
-dest_md5="f39429987df1f0162f5a99e1644ea3e3"
+dest_files=[ "res://.import/shrek x sonick.png-0fb478164e4c8dffb974671bbeb2e797.stex" ]
+dest_md5="de1daa8e2a92e86dac16343f875a4afc"
 
 [params]
 

@@ -20,3 +20,8 @@ func _process(delta):
 	elif not overlaps_body(player) and touching:
 		touching = false
 		audio.volume_db = -80
+	
+	if get_tree().paused and not audio.bus == "Paused":
+		audio.bus = "Paused"
+	elif not get_tree().paused and not audio.bus == "Master":
+		audio.bus = "Master"

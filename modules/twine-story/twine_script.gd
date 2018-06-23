@@ -22,7 +22,7 @@ func parse():
 			var link = passage.links.front()
 			passage.links.pop_front()
 			
-			links[link.id] = {
+			links[link.pid] = {
 				label = link.label,
 				passageId = link.passageId
 			}
@@ -42,7 +42,7 @@ func load_json(json_path):
 		return data
 	
 	var text = jsonFile.get_as_text()
-	data.parse_json(text)
+	data = parse_json(text)
 	jsonFile.close()
 	return data
 
@@ -62,14 +62,14 @@ func parse_links(text, links):
 		print("Invalid regex: ", linkRegex)
 		return
 	
-	var match = reg.search(text)
+	var matchText = reg.search(text)
 	
 	# no links found
-	if(match == null):
+	if(matchText == null):
 		return text
 	
-	while(match && match.get_start() >= 0):
-		var linkId = match.get_group_array()[0] # TODO capture 0?
+	while(matchText && matchText.get_start() >= 0):
+		var linkId = matchText.get_group_array()[0] # TODO capture 0?
 		var linkText
 		var linkPid
 		if(links.has(linkId)):
@@ -83,7 +83,7 @@ func parse_links(text, links):
 		text = text.replace(startStr+linkId+endStr, newLink)
 		#text = reg.sub(text, newLink, true)
 		
-		match = reg.search(text)
+		matchText = reg.search(text)
 	
 	return text
 
@@ -96,11 +96,11 @@ func parse_paragraphs(text):
 	
 	for para in paragraphs:
 		var lines = para.split("\n")
-		var match = tagRegex.search(lines[0])
+		var matchText = tagRegex.search(lines[0])
 		
 		# if this is a tag, remove tag from text
-		if(match != null):
-			var tagName = match.get_string()
+		if(matchText != null):
+			var tagName = matchText.get_string()
 			result.append({"text": lines.slice(1), "type": tagName})
 		else:
 			result.append({"text": para, "type": "text"})

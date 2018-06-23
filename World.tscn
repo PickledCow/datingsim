@@ -1,48 +1,28 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://save.gd" type="Script" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ddebug tilest.tres" type="TileSet" id=3]
-[ext_resource path="res://debugnocol.tres" type="TileSet" id=4]
-[ext_resource path="res://Scripts/Transitions.gd" type="Script" id=5]
-[ext_resource path="res://AreaAudio1.gd" type="Script" id=6]
-[ext_resource path="res://All_Star_-_Smash_Mouth_Lyrics[Mp3Converter.net].wav" type="AudioStream" id=7]
-[ext_resource path="res://Katyusha Instrumental Extended.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Scripts/Door.gd" type="Script" id=9]
-[ext_resource path="res://sprites/debug/door.png" type="Texture" id=10]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ddebug tilest.tres" type="TileSet" id=2]
+[ext_resource path="res://debugnocol.tres" type="TileSet" id=3]
+[ext_resource path="res://Transitions.tscn" type="PackedScene" id=4]
+[ext_resource path="res://AreaAudio1.gd" type="Script" id=5]
+[ext_resource path="res://All_Star_-_Smash_Mouth_Lyrics[Mp3Converter.net].wav" type="AudioStream" id=6]
+[ext_resource path="res://Katyusha Instrumental Extended.ogg" type="AudioStream" id=7]
+[ext_resource path="res://doors.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 1400, 500 )
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32, 12 )
-
-[sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
-extents = Vector2( 12, 32 )
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 12, 32 )
-
-[sub_resource type="RectangleShape2D" id=5]
-
-custom_solver_bias = 0.0
-extents = Vector2( 32, 12 )
-
 [node name="World" type="Node2D"]
 
-script = ExtResource( 1 )
+pause_mode = 1
+_sections_unfolded = [ "Pause" ]
 
 [node name="Player" parent="." index="0" groups=[
 "persist",
-] instance=ExtResource( 2 )]
+] instance=ExtResource( 1 )]
 
 position = Vector2( 40, 280 )
 z_index = 2
@@ -50,7 +30,7 @@ z_index = 2
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
 mode = 0
-tile_set = ExtResource( 3 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -72,7 +52,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 z_index = 2
 mode = 0
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -87,15 +67,14 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 131070, 0, 0, 131071, 0, 0, 327667, 0, 0, 327668, 0, 0, 327669, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0 )
+tile_data = PoolIntArray( -720903, 0, 0, -720902, 0, 0, -720901, 0, 0, -720900, 0, 0, -720899, 0, 0, 327667, 0, 0, 327668, 0, 0, 327669, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Transitions" type="Node2D" parent="." index="3"]
-
-script = ExtResource( 5 )
+[node name="Transitions" parent="." index="3" instance=ExtResource( 4 )]
 
 [node name="Area1" type="Area2D" parent="." index="4"]
 
+pause_mode = 2
 editor/display_folded = true
 position = Vector2( -20, 290 )
 input_pickable = true
@@ -106,8 +85,8 @@ angular_damp = 1.0
 collision_layer = 2
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
-_sections_unfolded = [ "Collision" ]
+script = ExtResource( 5 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Pause" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area1" index="0"]
 
@@ -116,14 +95,16 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area1" index="1"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 6 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+_sections_unfolded = [ "Pause" ]
 
 [node name="Area2" type="Area2D" parent="." index="5"]
 
+pause_mode = 2
 editor/display_folded = true
 position = Vector2( -260, -780 )
 input_pickable = true
@@ -134,8 +115,8 @@ angular_damp = 1.0
 collision_layer = 2
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 6 )
-_sections_unfolded = [ "Collision" ]
+script = ExtResource( 5 )
+_sections_unfolded = [ "Collision", "Pause" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2" index="0"]
 
@@ -144,218 +125,62 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2" index="1"]
 
-stream = ExtResource( 8 )
+stream = ExtResource( 7 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="doors" type="Node2D" parent="." index="6"]
+[node name="doors" parent="." index="6" instance=ExtResource( 8 )]
 
 editor/display_folded = true
 
-[node name="Door1" type="Area2D" parent="doors" index="0"]
+[node name="Door1" parent="doors" index="0" instance=ExtResource( 9 )]
 
-editor/display_folded = true
 position = Vector2( 928, 288 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 9 )
-_sections_unfolded = [ "Transform" ]
-playerName = "Player"
-triggerName = "CollisionShape2D"
-destinationName = "Door2"
-offsetX = -24
-offsetY = 5
+DestinationID = 2
+offsetX = -1
 exitAnim = "left"
-transition = false
-sceneChange = 0
+triggerPosition = "top"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="doors/Door1" index="0"]
+[node name="Door2" parent="doors" index="1" instance=ExtResource( 9 )]
 
-position = Vector2( 0, -18 )
-shape = SubResource( 2 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Test Door2" type="Sprite" parent="doors/Door1" index="1"]
-
-position = Vector2( -1.22772, 0 )
-texture = ExtResource( 10 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Door2" type="Area2D" parent="doors" index="1"]
-
-editor/display_folded = true
 position = Vector2( 160, 288 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 9 )
-_sections_unfolded = [ "Transform" ]
-playerName = "Player"
-triggerName = "CollisionShape2D"
-destinationName = "Door1"
-offsetX = 0
-offsetY = 24
+DestinationID = 1
+offsetY = 1
 exitAnim = "down"
-transition = false
-sceneChange = 0
+triggerPosition = "right"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="doors/Door2" index="0"]
+[node name="Door3" parent="doors" index="2" instance=ExtResource( 9 )]
 
-position = Vector2( 18, 0 )
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Test Door2" type="Sprite" parent="doors/Door2" index="1"]
-
-position = Vector2( -1.22772, 0 )
-texture = ExtResource( 10 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Door3" type="Area2D" parent="doors" index="2"]
-
-editor/display_folded = true
-position = Vector2( 1056, 544 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 9 )
-_sections_unfolded = [ "Transform" ]
-playerName = "Player"
-triggerName = "CollisionShape2D"
-destinationName = "Door4"
-offsetX = 0
-offsetY = 16
-exitAnim = "down"
-transition = false
-sceneChange = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="doors/Door3" index="0"]
-
-position = Vector2( -18, 0 )
-shape = SubResource( 4 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Test Door2" type="Sprite" parent="doors/Door3" index="1"]
-
-position = Vector2( -1.22772, 0 )
-texture = ExtResource( 10 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Door4" type="Area2D" parent="doors" index="3"]
-
-editor/display_folded = true
 position = Vector2( 928, 480 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 9 )
-_sections_unfolded = [ "Transform" ]
-playerName = "Player"
-triggerName = "CollisionShape2D"
-destinationName = "Door3"
-offsetX = 24
-offsetY = 5
-exitAnim = "right"
+DestinationID = 4
+offsetX = 1
 transition = false
-sceneChange = 0
+triggerPosition = "top"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="doors/Door4" index="0"]
+[node name="Door4" parent="doors" index="3" instance=ExtResource( 9 )]
 
-position = Vector2( 0, -18 )
-shape = SubResource( 5 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Test Door2" type="Sprite" parent="doors/Door4" index="1"]
-
-position = Vector2( -1.22772, 0 )
-texture = ExtResource( 10 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Door5" type="Area2D" parent="doors" index="4"]
-
-editor/display_folded = true
-position = Vector2( -736, 416 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 9 )
-_sections_unfolded = [ "Transform" ]
-playerName = "Player"
-triggerName = "CollisionShape2D"
-destinationName = "Door6"
-offsetX = 0
-offsetY = -36
-exitAnim = "up"
-transition = true
-sceneChange = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="doors/Door5" index="0"]
-
-position = Vector2( 0, -18 )
-shape = SubResource( 5 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Test Door2" type="Sprite" parent="doors/Door5" index="1"]
-
-position = Vector2( -1.22772, 0 )
-texture = ExtResource( 10 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Door6" type="Area2D" parent="doors" index="5"]
-
-editor/display_folded = true
-position = Vector2( -288, -351 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 9 )
-_sections_unfolded = [ "Transform" ]
-playerName = "Player"
-triggerName = "CollisionShape2D"
-destinationName = "Door5"
-offsetX = 0
-offsetY = 24
+position = Vector2( 1056, 544 )
+DestinationID = 3
+offsetY = 1
 exitAnim = "down"
-transition = true
-sceneChange = 0
+transition = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="doors/Door6" index="0"]
+[node name="Door5" parent="doors" index="5" instance=ExtResource( 9 )]
 
-position = Vector2( 0, 18 )
-shape = SubResource( 5 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( -736, 416 )
+DestinationID = 6
+offsetY = -1
+exitAnim = "up"
+triggerPosition = "top"
 
-[node name="Test Door2" type="Sprite" parent="doors/Door6" index="1"]
+[node name="Door6" parent="doors" index="6" instance=ExtResource( 9 )]
 
-position = Vector2( -1.22772, 0 )
-texture = ExtResource( 10 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( -288, -352 )
+DestinationID = 5
+offsetY = 1
+exitAnim = "down"
+triggerPosition = "bottom"
 
 

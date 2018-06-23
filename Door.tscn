@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Door.gd" type="Script" id=1]
+[ext_resource path="res://sprites/debug/door.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 10 )
+
+[node name="Door1" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+DestinationID = 0
+offsetX = 0
+offsetY = 0
+exitAnim = "right"
+transition = true
+triggerPosition = "left"
+sceneChange = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+rotation = 1.5708
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Test Door2" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+

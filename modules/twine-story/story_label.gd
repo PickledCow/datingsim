@@ -2,7 +2,7 @@ extends RichTextLabel
 
 var TwineScript = preload("res://modules/twine-story/twine_script.gd")
 
-export(String, FILE, "*.json") var scriptPath = "res://story/intro.json"
+export(String, FILE, "*.json") var scriptPath = "res://test.json"
 
 var script
 var currentPassage = 0
@@ -10,6 +10,7 @@ var currentParagraph = 0
 
 func _ready():
 	script = TwineScript.new(scriptPath)
+	print(script)
 	script.parse()
 	currentPassage = script.get_start_node()
 	show_paragraph(currentPassage, currentParagraph)
@@ -43,3 +44,6 @@ func _on_story_meta_clicked(meta):
 	currentPassage = sectionId
 	currentParagraph = 0
 	show_paragraph(currentPassage, currentParagraph)
+
+func _on_RichTextLabel_meta_clicked(meta):
+	pass # replace with function body

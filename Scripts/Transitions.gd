@@ -26,5 +26,6 @@ func resendPart2():
 	door.tranStart = false
 	player.canMove = true
 
+
 func _ready():
 	pass

@@ -17,7 +17,8 @@ func save():
 		"pos_x" : position.x,
 		"pos_y" : position.y,
 		"filename" : get_filename(),
-		"parent" : get_parent().get_path()
+		"parent" : get_parent().get_path(),
+		"scene" : "res://" + (get_tree().get_current_scene().get_name()) + ".tscn"  
 	}
 	return save_dict
 
