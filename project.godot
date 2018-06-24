@@ -11,13 +11,13 @@ config_version=3
 [application]
 
 config/name="Dating Simulator"
-run/main_scene="res://MainMenu.tscn"
-boot_splash/image="res://shrek x sonick.png"
+run/main_scene="res://Scenes/MainMenu.tscn"
+boot_splash/image="res://sprites/sploosh.png"
 config/icon="res://icon.png"
 
 [autoload]
 
-main="*res://main.tscn"
+main="*res://Scenes/main.tscn"
 
 [display]
 
@@ -101,7 +101,3 @@ dash=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","
  ]
 save=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
  ]
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"

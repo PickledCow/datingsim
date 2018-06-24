@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Katyusha Instrumental Extended.ogg-c0ef6fb41d576071b3cf9e0f5d9ca71e.oggstr"
+
+[deps]
+
+source_file="res://Sound/bg/Katyusha Instrumental Extended.ogg"
+source_md5="e3fd1272d4060b2e3aa08e0c0bdd8938"
+
+dest_files=[ "res://.import/Katyusha Instrumental Extended.ogg-c0ef6fb41d576071b3cf9e0f5d9ca71e.oggstr" ]
+dest_md5="c10b8a931993a3026d0b90fbf76aa4a9"
+
+[params]
+
+loop=true
+loop_offset=0

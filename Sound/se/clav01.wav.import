@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/clav01.wav-d66d8fc4ea1ff8f7e733559b5917d538.sample"
+
+[deps]
+
+source_file="res://Sound/se/clav01.wav"
+source_md5="d1b2151d304043077de6bbc356bf706a"
+
+dest_files=[ "res://.import/clav01.wav-d66d8fc4ea1ff8f7e733559b5917d538.sample" ]
+dest_md5="0080fef4c8831dea954b4724fc316f7a"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

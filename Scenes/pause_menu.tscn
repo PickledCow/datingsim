@@ -1,0 +1,26 @@
+[gd_scene format=2]
+
+[node name="pauseMenu" type="Node2D"]
+
+z_index = 6
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+
+position = Vector2( -270, -160 )
+scale = Vector2( 1.5, 1.5 )
+polygon = PoolVector2Array( 0, 0, 1030, 0, 1030, 600, 0, 600 )
+uv = PoolVector2Array(  )
+color = Color( 0, 0, 0, 0.752941 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+

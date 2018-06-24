@@ -1,14 +1,19 @@
 extends Node2D
 
+onready var player = get_node("")
+
+
+# ----- SAVE -----
 var alreadySaved = false
 var alreadyLoaded = false
 var saveID = 0
-export var main_menu = false
+export var main_menu = true
 var loaded = false
 var playerX = 0
 var playerY = 0
 var scene = ""
-export var level1 = "res://World.tscn"
+var continuing = false
+export var level1 = "res://Scenes/World.tscn"
 
 func save_game():
 	var save_game = File.new()
@@ -35,6 +40,9 @@ func load_game():
 	get_tree().change_scene(data["scene"])
 	
 	loaded = true
+	main_menu = false
+	continuing = true
+	
 	playerX = data["pos_x"]
 	playerY = data["pos_y"]
 	
@@ -42,9 +50,11 @@ func load_game():
 
 func new_game():
 	get_tree().change_scene(level1)
+	main_menu = false
+	loaded = true
 
 func _input(event):
-	if not main_menu:
+	if true:
 		if event.is_action_pressed("save") and not alreadySaved:
 			alreadySaved = true
 			save_game()
@@ -52,6 +62,40 @@ func _input(event):
 			alreadySaved = false
 			
 func _process(delta):
+	# Just loaded
 	if loaded and has_node("/root/World/Player"):
-		get_node("/root/World/Player").loads(playerX, playerY)
+		get_node("/root/World/Player/Camera2D/AnimationPlayer").play("instantFade")
+		get_node("/root/World/Player/Camera2D").smoothing_enabled = false
+		door = get_node("/root/World/doors/" + doorname)
+		if continuing:
+			get_node("/root/World/Player").loads(playerX, playerY)
+		get_node("/root/World/Player/Camera2D").align()
+		get_node("/root/World/Player/Camera2D").smoothing_enabled = true
 		loaded = false
+# ----- END SAVE -----	
+	
+# ----- TRANSITION -----
+var destination = null
+var offset = null
+var anim = null
+onready var door = null
+var doorname = "Door0"
+
+func record(a, b, c, d):
+	destination = a
+	offset = b
+	anim = c
+	doorname = d
+	door = get_node("/root/World/doors/" + str(doorname))
+	player = get_node("/root/World/Player")
+
+func resend():
+	player.enterDoor(destination, offset, anim)
+	get_node("/root/World/Player/Camera2D").smoothing_enabled = false
+	get_node("/root/World/Player/Camera2D").align()
+
+func resendPart2():
+	player.canMove = true
+	get_node("/root/World/Player/Camera2D").smoothing_enabled = true
+	door.tranStart = false
+

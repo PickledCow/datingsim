@@ -15,7 +15,7 @@ export var transition = true
 export(String, "left", "right", "top", "bottom") var triggerPosition = "right"
 export var sceneChange = false
 onready var tranStart = false
-onready var transitionNode = get_node("../../Transitions")
+onready var transitionNode = get_node("/root/main")
 
 func fadeSameScene(destination, offset, exitAnim):
 	get_node("../../Player/Camera2D/AnimationPlayer").play("fade")

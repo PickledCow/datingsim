@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+onready var main = get_node("/root/main")
+
 const speed = 256
 
 onready var sprite = get_node("AnimatedSprite")
@@ -16,9 +18,8 @@ func save():
 	var save_dict = {
 		"pos_x" : position.x,
 		"pos_y" : position.y,
-		"filename" : get_filename(),
-		"parent" : get_parent().get_path(),
-		"scene" : "res://" + (get_tree().get_current_scene().get_name()) + ".tscn"  
+		#"filename" : get_filename(),
+		"scene" : get_parent().get_filename(),
 	}
 	return save_dict
 
@@ -134,3 +135,16 @@ func _process(delta):
 			anim = str(anim + "idle")
 			
 	sprite.play(anim)
+
+# ----- Handyman -----
+
+var loaded = false
+
+func resend():
+	main.resend()
+func resendPart2():
+	canMove = true
+	main.resendPart2()
+
+func loaded():
+	loaded = true
