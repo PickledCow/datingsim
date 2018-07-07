@@ -12,7 +12,10 @@ var dominantAnim = ""
 onready var canMove = true
 
 func _ready():
-	pass
+	if main.main_menu == true:
+		main.main_menu = false
+		get_node("Camera2D/AnimationPlayer").play("hide")
+		loaded = true
 
 func save():
 	var save_dict = {

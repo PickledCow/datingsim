@@ -1,0 +1,83 @@
+[gd_resource type="AudioBusLayout" load_steps=6 format=2]
+
+[sub_resource type="AudioEffectFilter" id=1]
+
+resource_name = "Filter"
+cutoff_hz = 2000.0
+resonance = 0.5
+gain = 1.0
+db = 0
+
+[sub_resource type="AudioEffectLowPassFilter" id=2]
+
+resource_name = "LowPassFilter"
+cutoff_hz = 300.0
+resonance = 0.5
+gain = 1.0
+db = 0
+
+[sub_resource type="AudioEffectReverb" id=3]
+
+resource_name = "Reverb"
+predelay_msec = 150.0
+predelay_feedback = 0.4
+room_size = 0.8
+damping = 0.5
+spread = 1.0
+hipass = 0.0
+dry = 1.0
+wet = 0.5
+
+[sub_resource type="AudioEffectFilter" id=4]
+
+resource_name = "Filter"
+cutoff_hz = 2000.0
+resonance = 0.5
+gain = 1.0
+db = 0
+
+[sub_resource type="AudioEffectLowPassFilter" id=5]
+
+resource_name = "LowPassFilter"
+cutoff_hz = 300.0
+resonance = 0.5
+gain = 1.0
+db = 0
+
+[resource]
+
+bus/0/name = "Master"
+bus/0/solo = false
+bus/0/mute = false
+bus/0/bypass_fx = false
+bus/0/volume_db = 0.0
+bus/0/send = ""
+bus/1/name = "Paused"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = "Master"
+bus/1/effect/0/effect = SubResource( 1 )
+bus/1/effect/0/enabled = true
+bus/2/name = "Low_Pass"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = "Master"
+bus/2/effect/0/effect = SubResource( 2 )
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource( 3 )
+bus/2/effect/1/enabled = false
+bus/3/name = "Low_Pass_Paused"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -8.5
+bus/3/send = "Low_Pass"
+bus/3/effect/0/effect = SubResource( 4 )
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource( 5 )
+bus/3/effect/1/enabled = false
+

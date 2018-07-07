@@ -1,15 +1,5 @@
 extends Sprite
 
-func _ready():
-	if is_main_menu:
-		main_menu = true
-		var save_game = File.new()
-		if not save_game.file_exists("user://save" + "0"):
-			no_save = true
-			length = 0
-			pos = 444
-			get_node("../Continue").self_modulate = Color(1,1,1,0.75)
-
 export var pos = 384
 export var is_main_menu = false
 export var length = 1
@@ -20,6 +10,16 @@ var down_pressed = false
 var main_menu = false
 onready var click = get_node("AudioStreamPlayer")
 onready var select = get_node("AudioStreamPlayer2")
+
+func _ready():
+	if is_main_menu:
+		main_menu = true
+		var save_game = File.new()
+		if not save_game.file_exists("user://save" + "0"):
+			no_save = true
+			length = 0
+			pos = 444
+			get_node("../Continue").self_modulate = Color(1,1,1,0.75)
 
 func _input(event):
 	if event.is_action_pressed("ui_up") and not up_pressed:
