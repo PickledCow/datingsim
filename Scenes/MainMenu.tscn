@@ -79,7 +79,7 @@ _sections_unfolded = [ "Material" ]
 
 modulate = Color( 1, 0.996094, 0.997716, 1 )
 show_behind_parent = true
-position = Vector2( 192, 301.545 )
+position = Vector2( 64, 256 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 

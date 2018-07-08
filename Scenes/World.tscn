@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/ddebug tilest.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/debugnocol.tres" type="TileSet" id=3]
 [ext_resource path="res://Scripts/AreaAudio.gd" type="Script" id=4]
-[ext_resource path="res://Sound/bg/All_Star_-_Smash_Mouth_Lyrics[Mp3Converter.net].wav" type="AudioStream" id=5]
+[ext_resource path="res://Sound/bg/All_Star_-_Smash_Mouth_Lyrics[Mp3Converter.net].ogg" type="AudioStream" id=5]
 [ext_resource path="res://Sound/bg/Katyusha Instrumental Extended.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Scenes/doors.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Door.tscn" type="PackedScene" id=8]
@@ -25,7 +25,7 @@ extents = Vector2( 600, 600 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 pause_mode = 1
 _sections_unfolded = [ "Pause" ]
@@ -118,7 +118,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 4 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Pause" ]
-play = false
+play = true
 autoplay = true
 bus = "Master"
 persistent = false
@@ -140,6 +140,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Area2" type="Area2D" parent="." index="5"]
 
 pause_mode = 2
+editor/display_folded = true
 position = Vector2( -260, -780 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -173,6 +174,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Area3" type="Area2D" parent="." index="6"]
 
 pause_mode = 2
+editor/display_folded = true
 position = Vector2( -1024, -64 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -208,7 +210,6 @@ area_mask = 1
 
 [node name="doors" parent="." index="7" instance=ExtResource( 7 )]
 
-editor/display_folded = true
 _sections_unfolded = [ "Pause" ]
 
 [node name="Door1" parent="doors" index="0" instance=ExtResource( 8 )]

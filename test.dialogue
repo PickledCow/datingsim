@@ -1,29 +1,30 @@
 {
   "passages": [
     {
-      "text": "Who was phone!!eleven !!!1!!!11!!\n\n[[IDK|Test 1]] \n[[Me|Test 2]] \n",
+      "text": "Who was phone!!eleven !!!1!!!11!!\n\n[[IDK|Test 1]] \n[[Dei]] ",
       "links": [
         {
           "name": "IDK|Test 1",
           "link": "IDK|Test 1"
         },
         {
-          "name": "Me|Test 2",
-          "link": "Me|Test 2"
+          "name": "Dei",
+          "link": "Dei",
+          "pid": "3"
         }
       ],
       "name": "Start",
       "pid": "1",
       "position": {
         "x": "300",
-        "y": "200"
+        "y": "199"
       },
       "tags": [
-        "Start"
+        "Debug1"
       ]
     },
     {
-      "text": "I WAS PHONE!!!!oONE !@#!+++Fbgncjhfgvxcrbtv\n[[...|Dei]]",
+      "text": "I WAS PHONE!!!!oONE !@#!+++Fbgncjhfgvxcrbtv\n\n[[...|Dei]]",
       "links": [
         {
           "name": "...|Dei",
@@ -33,40 +34,31 @@
       "name": "Test 1",
       "pid": "2",
       "position": {
-        "x": "500",
-        "y": "200"
-      }
+        "x": "495",
+        "y": "281"
+      },
+      "tags": [
+        "Debug2"
+      ]
     },
     {
-      "text": "no\n\n[[So Who was phone?|Test 1]]",
-      "links": [
-        {
-          "name": "So Who was phone?|Test 1",
-          "link": "So Who was phone?|Test 1"
-        }
-      ],
-      "name": "Test 2",
-      "pid": "3",
-      "position": {
-        "x": "400",
-        "y": "400"
-      }
-    },
-    {
-      "text": "DIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n[[EEEEE]]",
+      "text": "DIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n\n[[EEEEE]]",
       "links": [
         {
           "name": "EEEEE",
           "link": "EEEEE",
-          "pid": "5"
+          "pid": "4"
         }
       ],
       "name": "Dei",
-      "pid": "4",
+      "pid": "3",
       "position": {
         "x": "700",
         "y": "200"
-      }
+      },
+      "tags": [
+        "Debug1"
+      ]
     },
     {
       "text": "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!\n\n[[spok|freddy]] ",
@@ -77,11 +69,14 @@
         }
       ],
       "name": "EEEEE",
-      "pid": "5",
+      "pid": "4",
       "position": {
         "x": "600",
-        "y": "400"
-      }
+        "y": "404"
+      },
+      "tags": [
+        "Debug2"
+      ]
     },
     {
       "text": "R UREADY DFOORFERSDDY\n[[get]] \n",
@@ -89,72 +84,93 @@
         {
           "name": "get",
           "link": "get",
-          "pid": "7"
+          "pid": "6"
         }
       ],
       "name": "freddy",
-      "pid": "6",
+      "pid": "5",
       "position": {
         "x": "800",
         "y": "400"
-      }
+      },
+      "tags": [
+        "Debug2"
+      ]
     },
     {
-      "text": "get\n[[rekt]]\n",
+      "text": "get\n[[destroyed]] \n",
+      "links": [
+        {
+          "name": "destroyed",
+          "link": "destroyed",
+          "pid": "8"
+        }
+      ],
+      "name": "get",
+      "pid": "6",
+      "position": {
+        "x": "700",
+        "y": "600"
+      },
+      "tags": [
+        "Debug1"
+      ]
+    },
+    {
+      "text": "rekt\n[[df]] ",
+      "links": [
+        {
+          "name": "df",
+          "link": "df",
+          "pid": "9"
+        }
+      ],
+      "name": "rekt",
+      "pid": "7",
+      "position": {
+        "x": "535",
+        "y": "784"
+      },
+      "tags": [
+        "Debug1"
+      ]
+    },
+    {
+      "text": "jaa\n\n[[rekt]] ",
       "links": [
         {
           "name": "rekt",
           "link": "rekt",
-          "pid": "9"
+          "pid": "7"
         }
       ],
-      "name": "get",
-      "pid": "7",
-      "position": {
-        "x": "700",
-        "y": "600"
-      }
-    },
-    {
-      "text": "Double-click this passage to edit it.",
-      "name": "Untitled Passage 1",
+      "name": "destroyed",
       "pid": "8",
       "position": {
-        "x": "1075",
-        "y": "575"
-      }
-    },
-    {
-      "text": "rekt\n[[get]] \n[[destroyed]]\n",
-      "links": [
-        {
-          "name": "get",
-          "link": "get",
-          "pid": "7"
-        },
-        {
-          "name": "destroyed",
-          "link": "destroyed",
-          "pid": "10"
-        }
-      ],
-      "name": "rekt",
-      "pid": "9",
-      "position": {
-        "x": "500",
-        "y": "600"
-      }
-    },
-    {
-      "text": "ja",
-      "name": "destroyed",
-      "pid": "10",
-      "position": {
-        "x": "300",
-        "y": "600"
+        "x": "311",
+        "y": "593"
       },
       "tags": [
-        "end"
+        "Debug2"
+      ]
+    },
+    {
+      "text": "jews did 9111\n[[Start]] ",
+      "links": [
+        {
+          "name": "Start",
+          "link": "Start",
+          "pid": "1"
+        }
+      ],
+      "name": "df",
+      "pid": "9",
+      "position": {
+        "x": "814",
+        "y": "823"
+      },
+      "tags": [
+        "Debug1"
       ]
     }
   ],

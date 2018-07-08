@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/All_Star_-_Smash_Mouth_Lyrics[Mp3Converter.net].ogg-4f8a84a36d47f353f3bd3f18e1e742bb.oggstr"
+
+[deps]
+
+source_file="res://Sound/bg/All_Star_-_Smash_Mouth_Lyrics[Mp3Converter.net].ogg"
+source_md5="0f862cfdf004f974f542dd5ae3372072"
+
+dest_files=[ "res://.import/All_Star_-_Smash_Mouth_Lyrics[Mp3Converter.net].ogg-4f8a84a36d47f353f3bd3f18e1e742bb.oggstr" ]
+dest_md5="367e86cac014823065f993b3382bb781"
+
+[params]
+
+loop=true
+loop_offset=0

@@ -67,6 +67,9 @@ func _process(delta):
 		get_node("/root/World/Player/Camera2D").align()
 		get_node("/root/World/Player/Camera2D").smoothing_enabled = true
 		loaded = false
+	
+	# ----- TEST -----
+	
 # ----- END SAVE -----	
 
 # ----- TRANSITION -----
