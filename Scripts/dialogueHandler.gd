@@ -1,49 +1,64 @@
 extends RichTextLabel
 
-onready var dialogue = {"a" : "tfg"}
+onready var dialogue = get_node("/root/main").dialogue
 
-func parse_dialogue(script_path):
-	var json_file = File.new()
-	json_file.open(script_path, json_file.READ)
-	var json_text = json_file.get_as_text()
-	dialogue = parse_json(json_text)
-	json_file.close()
-	
 var pid = 1
 var page = 0
 var press = false
 var option = 0
+var talk_start = false
+var talking = false
+var ended = false
+export var passage = ""
+var source_name = ""
+onready var source = get_node(source_name)
 
 onready var icon = get_node("../Face")
 
 func _ready():
-	parse_dialogue("res://test.dialogue")
-	set_bbcode(((dialogue["passages"])[page])["text"])
+	get_node("../").hide()
+	#set_bbcode(((dialogue[passage])[page])["text"])
 	set_visible_characters(0)
 	set_process_input(true)
-	icon.play((((dialogue["passages"])[page])["tags"])[0])
+	#icon.play((((dialogue[passage])[page])["tags"])[0])
 
 func _input(event):
-	if event.is_action_pressed("ui_accept") and not press:
+	if (event.is_action_pressed("ui_accept") or (event.is_action_pressed("ui_back") and talking)) and (not press) and talk_start:
+		if ended:
+			ended = false
+			pid = 1
+			page = 0
+		talking = true
+		get_node("../").show()
+		get_node("../../../").canMove = false
 		press = true
-		if get_visible_characters() >= get_total_character_count() and page+1 < len(dialogue["passages"]):
-			icon.play((((dialogue["passages"])[page])["tags"])[0])
-			for i in range(0, len(((dialogue["passages"])[page])["links"])):
-				if (((((dialogue["passages"])[page])["links"])[i]).has("pid") and i == option): # wip
-					pid = int(((((dialogue["passages"])[page])["links"])[i])["pid"])
-					page = pid - 1
-					option = 0
-					set_visible_characters(0)
-					set_bbcode((((dialogue["passages"])[page]))["text"])
-					break
-				elif (not page+1 == len(dialogue["passages"])) and i == option:
-					page += 1+i
-					pid += 1+i
-					option = 0
-					set_visible_characters(0)
-					set_bbcode(((dialogue["passages"])[page])["text"])
-					break
-				
+		source = get_node(source_name)
+		if get_visible_characters() >= get_total_character_count() and page < len(dialogue[passage]):
+			if ((dialogue[passage])[page]).has("links"):
+				for i in range(0, len(((dialogue[passage])[page])["links"])):
+					if (((((dialogue[passage])[page])["links"])[i]).has("pid") and i == option): # wip
+						pid = int(((((dialogue[passage])[page])["links"])[i])["pid"])
+						page = pid - 1
+						option = 0
+						set_visible_characters(0)
+						set_bbcode((((dialogue[passage])[page]))["text"])
+						break
+					elif (not page+1 == len(dialogue[passage])) and i == option:
+						page += 1+i
+						pid += 1+i
+						option = 0
+						set_visible_characters(0)
+						set_bbcode(((dialogue[passage])[page])["text"])
+						break
+				icon.play((((dialogue[passage])[page])["tags"])[0])
+			else:
+				get_node("../../../").canMove = true
+				get_node("../").hide()
+				talk_start = false
+				talking = false
+				ended = true
+				source.already_talked_to = true
+	
 		else:
 			set_visible_characters(get_total_character_count())
 	if not event.is_action_pressed("ui_accept") and press:

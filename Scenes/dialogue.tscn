@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/dialogueHandler.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://sprites/debug/tile006.png" type="Texture" id=3]
+[ext_resource path="res://sprites/debug/debug1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/debug/bongzzo.png" type="Texture" id=5]
+[ext_resource path="res://sprites/debug/bozo.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -16,14 +19,29 @@ animations = [ {
 "loop": true,
 "name": "Debug2",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "debug1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "bongzo1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "bongzo2",
+"speed": 5.0
 } ]
 
-[node name="DialogueBox" type="Polygon2D" index="0"]
+[node name="DialogueBox" type="Polygon2D"]
 
 position = Vector2( 1.06667, 40 )
 polygon = PoolVector2Array( 958.933, 344, 958.933, 504, 30.9333, 504, 30.9333, 434.723, 30.9333, 344 )
 uv = PoolVector2Array(  )
-color = Color( 0, 0, 0, 0.627451 )
+color = Color( 0, 0, 0, 0.752941 )
 vertex_colors = PoolColorArray(  )
 offset = Vector2( 0, 0 )
 antialiased = false
@@ -75,6 +93,7 @@ selection_enabled = false
 override_selected_font_color = false
 script = ExtResource( 1 )
 _sections_unfolded = [ "BBCode", "Grow Direction", "Rect" ]
+passage = ""
 
 [node name="Timer" type="Timer" parent="." index="1"]
 
@@ -86,9 +105,9 @@ autostart = true
 [node name="Face" type="AnimatedSprite" parent="." index="2"]
 
 position = Vector2( 878.933, 424 )
-scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
 animation = "Debug1"
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="timeout" from="Timer" to="RichTextLabel" method="_on_Timer_timeout"]
 

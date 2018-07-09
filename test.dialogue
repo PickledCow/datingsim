@@ -1,182 +1,130 @@
 {
   "passages": [
     {
-      "text": "Who was phone!!eleven !!!1!!!11!!\n\n[[IDK|Test 1]] \n[[Dei]] ",
+      "text": "[[1]]",
       "links": [
         {
-          "name": "IDK|Test 1",
-          "link": "IDK|Test 1"
-        },
+          "name": "1",
+          "link": "1",
+          "pid": "2"
+        }
+      ],
+      "name": "Untitled Passage",
+      "pid": "1",
+      "position": {
+        "x": "151",
+        "y": "193.5"
+      },
+      "tags": [
+        "naaaaah"
+      ]
+    },
+    {
+      "text": "I'm Bongzo.  Bongzo the clown.  I eat little babies.\n[[2]]",
+      "links": [
         {
-          "name": "Dei",
-          "link": "Dei",
+          "name": "2",
+          "link": "2",
           "pid": "3"
         }
       ],
-      "name": "Start",
-      "pid": "1",
-      "position": {
-        "x": "300",
-        "y": "199"
-      },
-      "tags": [
-        "Debug1"
-      ]
-    },
-    {
-      "text": "I WAS PHONE!!!!oONE !@#!+++Fbgncjhfgvxcrbtv\n\n[[...|Dei]]",
-      "links": [
-        {
-          "name": "...|Dei",
-          "link": "...|Dei"
-        }
-      ],
-      "name": "Test 1",
+      "name": "1",
       "pid": "2",
       "position": {
-        "x": "495",
-        "y": "281"
+        "x": "326",
+        "y": "198.5"
       },
       "tags": [
-        "Debug2"
+        "bongzo1"
       ]
     },
     {
-      "text": "DIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE\n\n[[EEEEE]]",
+      "text": "What's your name, young one?\n[[red]]",
       "links": [
         {
-          "name": "EEEEE",
-          "link": "EEEEE",
+          "name": "red",
+          "link": "red",
           "pid": "4"
         }
       ],
-      "name": "Dei",
+      "name": "2",
       "pid": "3",
       "position": {
-        "x": "700",
-        "y": "200"
+        "x": "554",
+        "y": "191.5"
       },
       "tags": [
-        "Debug1"
+        "bongzo2"
       ]
     },
     {
-      "text": "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!\n\n[[spok|freddy]] ",
+      "text": "My name is Dingo.\n[[yum]] ",
       "links": [
         {
-          "name": "spok|freddy",
-          "link": "spok|freddy"
+          "name": "yum",
+          "link": "yum",
+          "pid": "5"
         }
       ],
-      "name": "EEEEE",
+      "name": "red",
       "pid": "4",
       "position": {
-        "x": "600",
-        "y": "404"
+        "x": "710",
+        "y": "194.5"
       },
       "tags": [
-        "Debug2"
+        "debug1"
       ]
     },
     {
-      "text": "R UREADY DFOORFERSDDY\n[[get]] \n",
-      "links": [
-        {
-          "name": "get",
-          "link": "get",
-          "pid": "6"
-        }
-      ],
-      "name": "freddy",
+      "text": "What a tasty sounding name.  You would be perfect for my child stew.  \nMmm, I can't wait for dinner. ",
+      "name": "yum",
       "pid": "5",
       "position": {
-        "x": "800",
-        "y": "400"
+        "x": "870",
+        "y": "195.5"
       },
       "tags": [
-        "Debug2"
-      ]
-    },
-    {
-      "text": "get\n[[destroyed]] \n",
-      "links": [
-        {
-          "name": "destroyed",
-          "link": "destroyed",
-          "pid": "8"
-        }
-      ],
-      "name": "get",
-      "pid": "6",
-      "position": {
-        "x": "700",
-        "y": "600"
-      },
-      "tags": [
-        "Debug1"
-      ]
-    },
-    {
-      "text": "rekt\n[[df]] ",
-      "links": [
-        {
-          "name": "df",
-          "link": "df",
-          "pid": "9"
-        }
-      ],
-      "name": "rekt",
-      "pid": "7",
-      "position": {
-        "x": "535",
-        "y": "784"
-      },
-      "tags": [
-        "Debug1"
-      ]
-    },
-    {
-      "text": "jaa\n\n[[rekt]] ",
-      "links": [
-        {
-          "name": "rekt",
-          "link": "rekt",
-          "pid": "7"
-        }
-      ],
-      "name": "destroyed",
-      "pid": "8",
-      "position": {
-        "x": "311",
-        "y": "593"
-      },
-      "tags": [
-        "Debug2"
-      ]
-    },
-    {
-      "text": "jews did 9111\n[[Start]] ",
-      "links": [
-        {
-          "name": "Start",
-          "link": "Start",
-          "pid": "1"
-        }
-      ],
-      "name": "df",
-      "pid": "9",
-      "position": {
-        "x": "814",
-        "y": "823"
-      },
-      "tags": [
-        "Debug1"
+        "bongzo1"
       ]
     }
   ],
-  "name": "test",
+  "passages2": [
+    {
+      "text": "[[1]]",
+      "links": [
+        {
+          "name": "1",
+          "link": "1",
+          "pid": "2"
+        }
+      ],
+      "name": "Untitled Passage",
+      "pid": "1",
+      "position": {
+        "x": "151",
+        "y": "193.5"
+      },
+      "tags": [
+        "naaaaah"
+      ]
+    },
+    {
+      "text": "Mmm, child stew........",
+      "name": "1",
+      "pid": "2",
+      "position": {
+        "x": "326",
+        "y": "198.5"
+      },
+      "tags": [
+        "bongzo1"
+      ]
+    }
+  ],
+  "name": "bongzo",
   "startnode": "1",
   "creator": "Twine",
   "creator-version": "2.2.1",
-  "ifid": "8CD5D223-BCC0-4B71-A42D-3FAECB917D90"
+  "ifid": "CEA7B17D-FB23-45A7-AA24-08833B48D430"
 }

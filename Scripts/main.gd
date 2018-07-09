@@ -3,7 +3,7 @@ extends Node2D
 onready var player = get_node("")
 
 func _ready():
-	pass
+	parse_dialogue("res://test.dialogue")
 
 
 # ----- SAVE -----
@@ -69,7 +69,10 @@ func _process(delta):
 		loaded = false
 	
 	# ----- TEST -----
-	
+	#print(dialogue)
+
+	# ----- END TEST -----
+
 # ----- END SAVE -----	
 
 # ----- TRANSITION -----
@@ -97,3 +100,13 @@ func resendPart2():
 	get_node("/root/World/Player/Camera2D").smoothing_enabled = true
 	door.tranStart = false
 # ----- END TRANSITION -----
+
+# ----- DIALOGUE -----
+onready var dialogue = {}
+
+func parse_dialogue(script_path):
+	var json_file = File.new()
+	json_file.open(script_path, json_file.READ)
+	var json_text = json_file.get_as_text()
+	dialogue = parse_json(json_text)
+	json_file.close()
