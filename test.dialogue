@@ -122,6 +122,129 @@
       ]
     }
   ],
+  "passages3": [
+    {
+      "text": "[[1]]",
+      "links": [
+        {
+          "name": "1",
+          "link": "1",
+          "pid": "2"
+        }
+      ],
+      "name": "Untitled Passage",
+      "pid": "1",
+      "position": {
+        "x": "151",
+        "y": "193"
+      },
+      "tags": [
+        "naaaaah"
+      ]
+    },
+    {
+      "text": "Hey kiddo, want some crack?\nFirst ones free!\n[[Untitled Passage 1]] ",
+      "links": [
+        {
+          "name": "Untitled Passage 1",
+          "link": "Untitled Passage 1",
+          "pid": "3"
+        }
+      ],
+      "name": "1",
+      "pid": "2",
+      "position": {
+        "x": "326",
+        "y": "198"
+      },
+      "tags": [
+        "bongzo2"
+      ]
+    },
+    {
+      "text": "Mommy told me not to take candy from strangers.\n[[Untitled Passage 2]] ",
+      "links": [
+        {
+          "name": "Untitled Passage 2",
+          "link": "Untitled Passage 2",
+          "pid": "4"
+        }
+      ],
+      "name": "Untitled Passage 1",
+      "pid": "3",
+      "position": {
+        "x": "470",
+        "y": "200.5"
+      },
+      "tags": [
+        "debug1"
+      ]
+    },
+    {
+      "text": "Oh, what a shame...",
+      "name": "Untitled Passage 2",
+      "pid": "4",
+      "position": {
+        "x": "696",
+        "y": "196.5"
+      },
+      "tags": [
+        "bongzo1"
+      ]
+    }
+  ],
+  "passages4": [
+    {
+      "text": "[[1]]",
+      "links": [
+        {
+          "name": "1",
+          "link": "1",
+          "pid": "2"
+        }
+      ],
+      "name": "Untitled Passage",
+      "pid": "1",
+      "position": {
+        "x": "151",
+        "y": "193"
+      },
+      "tags": [
+        "naaaaah"
+      ]
+    },
+    {
+      "text": "You sure you don't want free crack?\n[[Untitled Passage 1]] ",
+      "links": [
+        {
+          "name": "Untitled Passage 1",
+          "link": "Untitled Passage 1",
+          "pid": "3"
+        }
+      ],
+      "name": "1",
+      "pid": "2",
+      "position": {
+        "x": "326",
+        "y": "198"
+      },
+      "tags": [
+        "bongzo2"
+      ]
+    },
+    {
+      "text": "No thanks.",
+      "name": "Untitled Passage 1",
+      "pid": "3",
+      "position": {
+        "x": "470",
+        "y": "200.5"
+      },
+      "tags": [
+        "debug1"
+      ]
+    }
+  ],
   "name": "bongzo",
   "startnode": "1",
   "creator": "Twine",

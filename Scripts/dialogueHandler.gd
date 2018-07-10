@@ -22,6 +22,8 @@ func _ready():
 	set_process_input(true)
 	#icon.play((((dialogue[passage])[page])["tags"])[0])
 
+#((((dialogue[passage])[page])["text"]).split("[[", 1)[0])
+
 func _input(event):
 	if (event.is_action_pressed("ui_accept") or (event.is_action_pressed("ui_back") and talking)) and (not press) and talk_start:
 		if ended:
@@ -41,14 +43,14 @@ func _input(event):
 						page = pid - 1
 						option = 0
 						set_visible_characters(0)
-						set_bbcode((((dialogue[passage])[page]))["text"])
+						set_bbcode((((dialogue[passage])[page])["text"]).split("[[", 1)[0])
 						break
 					elif (not page+1 == len(dialogue[passage])) and i == option:
 						page += 1+i
 						pid += 1+i
 						option = 0
 						set_visible_characters(0)
-						set_bbcode(((dialogue[passage])[page])["text"])
+						set_bbcode((((dialogue[passage])[page])["text"]).split("[[", 1)[0])
 						break
 				icon.play((((dialogue[passage])[page])["tags"])[0])
 			else:
@@ -68,3 +70,6 @@ func _input(event):
 
 func _on_Timer_timeout():
 	set_visible_characters(get_visible_characters()+1)
+	
+func _process(delta):
+	pass

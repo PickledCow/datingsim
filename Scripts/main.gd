@@ -3,6 +3,7 @@ extends Node2D
 onready var player = get_node("")
 
 func _ready():
+	get_node("transition/AnimationPlayer").play("hide")
 	parse_dialogue("res://test.dialogue")
 
 
@@ -59,7 +60,7 @@ func _input(event):
 func _process(delta):
 	# Just loaded
 	if loaded and has_node("/root/World/Player"):
-		get_node("/root/World/Player/Camera2D/AnimationPlayer").play("instantFade")
+		get_node("transition/AnimationPlayer").play("instantFade")
 		get_node("/root/World/Player/Camera2D").smoothing_enabled = false
 		door = get_node("/root/World/doors/" + doorname)
 		if continuing:

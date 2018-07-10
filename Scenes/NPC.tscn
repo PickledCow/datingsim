@@ -30,7 +30,6 @@ script = ExtResource( 2 )
 dialogue_box = "../Player/CanvasLayer/DialogueBox/RichTextLabel"
 player_path = "../Player"
 passage_name = ""
-different_second_time = false
 passage_2_name = ""
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." index="0"]

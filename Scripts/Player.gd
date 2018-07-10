@@ -14,7 +14,7 @@ onready var canMove = true
 func _ready():
 	if main.main_menu == true:
 		main.main_menu = false
-		get_node("Camera2D/AnimationPlayer").play("hide")
+		#get_node("/root/main/transition/AnimationPlayer").play("hide")
 		loaded = true
 
 func save():
@@ -143,11 +143,6 @@ func _process(delta):
 
 var loaded = false
 
-func resend():
-	main.resend()
-func resendPart2():
-	canMove = true
-	main.resendPart2()
 
 func loaded():
 	loaded = true

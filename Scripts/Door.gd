@@ -4,21 +4,26 @@ onready var player = get_node("../../" + playerName)
 var playerName = "Player"
 var triggerName = "CollisionShape2D"
 onready var trigger = get_node(triggerName)
-export var DestinationID = 0
-onready var destinationName = "Door" + str(DestinationID)
-onready var destination = get_node("../" + destinationName)
+#export var DestinationID = 0
+export(NodePath) onready var destinationName
+#onready var destinationName = "Door" + str(DestinationID)
+onready var destination = get_node(destinationName)
 onready var destinationOffset = Vector2(0, 0)
 export var offsetX = 0
 export var offsetY = 0
 export(String, "left", "right", "up", "down") var exitAnim = "right"
 export var transition = true
 export(String, "left", "right", "top", "bottom") var triggerPosition = "right"
-export var sceneChange = false
+export(String, FILE) var destination_scene
 onready var tranStart = false
 onready var transitionNode = get_node("/root/main")
 
 func fadeSameScene(destination, offset, exitAnim):
-	get_node("../../Player/Camera2D/AnimationPlayer").play("fade")
+	get_node("/root/main/transition/AnimationPlayer").play("fade")
+	transitionNode.record(destination, offset, exitAnim, name)
+	
+func fadeDifferentScene(destination, scene, offset, exitAnim):
+	get_node("/root/main/transition/AnimationPlayer").play("fade")
 	transitionNode.record(destination, offset, exitAnim, name)
 	
 func _ready():
@@ -46,10 +51,16 @@ func _ready():
 	
 
 func _process(delta):
-	if transition and not sceneChange and overlaps_body(player) and not tranStart:
+	if transition and str(destination_scene) == "Null" and overlaps_body(player) and not tranStart:
 		tranStart = true
 		player.canMove = false
-		fadeSameScene((destination.get_transform())[2], destinationOffset, exitAnim)
+		fadeSameScene((destination.get_transform())[2], destination.destinationOffset, destination.exitAnim)
 	
-	elif overlaps_body(player) and not tranStart:
+	elif str(destination_scene) == "Null" and overlaps_body(player) and not tranStart:
+		tranStart = true
+		player.canMove = false
+		fadeDifferentScene((destination.get_transform())[2], destinationOffset, exitAnim)
+		
+	elif str(destination_scene) == "Null" and overlaps_body(player) and not tranStart:
 		player.enterDoor((destination.get_transform())[2], destinationOffset, exitAnim)
+	
